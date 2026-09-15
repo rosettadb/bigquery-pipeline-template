@@ -1,0 +1,11 @@
+bigquery:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: '{{ env_var("db-project-bigquery") }}'
+      dataset: '{{ env_var("db-dataset-bigquery") }}'
+      threads: 4
+      priority: interactive
+      keyfile: '{{ env_var("db-bigquery-bigquery") }}'

@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: demo
+    database: "{{ env_var('db-project-bigquery') }}"
+    schema: demo
+    tables:
+      - name: customers
+        description: "Customers table created by Rosetta and seeded by dbt"
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        tests:
+          - not_null
+      - name: customer_email
+        tests:
+          - not_null
+          - unique
+      - name: signup_date
+        tests:
+          - not_null

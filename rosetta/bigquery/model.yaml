@@ -1,0 +1,54 @@
+databaseProductName: "Google BigQuery"
+databaseType: "bigquery"
+operationLevel: "schema"
+safeMode: false
+tables:
+  - name: "customers"
+    type: "TABLE"
+    schema: "demo"
+    columns:
+      - name: "customer_id"
+        typeName: "INT64"
+        ordinalPosition: 1
+        primaryKeySequenceId: 1
+        columnDisplaySize: 19
+        scale: 0
+        precision: 19
+        columnProperties: []
+        autoincrement: false
+        primaryKey: true
+        nullable: false
+      - name: "customer_name"
+        typeName: "STRING"
+        ordinalPosition: 2
+        primaryKeySequenceId: 0
+        columnDisplaySize: 255
+        scale: 0
+        precision: 0
+        columnProperties: []
+        autoincrement: false
+        primaryKey: false
+        nullable: false
+      - name: "customer_email"
+        typeName: "STRING"
+        ordinalPosition: 3
+        primaryKeySequenceId: 0
+        columnDisplaySize: 255
+        scale: 0
+        precision: 0
+        columnProperties: []
+        autoincrement: false
+        primaryKey: false
+        nullable: false
+      - name: "signup_date"
+        typeName: "DATETIME"
+        ordinalPosition: 4
+        primaryKeySequenceId: 0
+        columnDisplaySize: 26
+        scale: 0
+        precision: 0
+        columnProperties: []
+        autoincrement: false
+        primaryKey: false
+        nullable: false
+views: []

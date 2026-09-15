@@ -1,0 +1,28 @@
+name: CI
+jobs:
+  - name: bigquery-create-seed-test
+    steps:
+      - name: provision-bigquery-dataset
+        plugin: terraform@v1
+        command: terraform init && terraform apply -auto-approve
+        working_dir: terraform
+      - name: apply-rosetta-schema
+        plugin: rosetta@v1
+        command: rosetta apply -s bigquery
+        working_dir: rosetta
+      - name: dbt-seed
+        plugin: dbt@v1
+        command: dbt seed
+      - name: dbt-run
+        plugin: dbt@v1
+        command: dbt run
+      - name: dbt-test
+        plugin: dbt@v1
+        command: dbt test
+  - name: terraform-destroy
+    steps:
+      - name: destroy-bigquery-dataset
+        plugin: terraform@v1
+        command: terraform init && terraform destroy -auto-approve
+        working_dir: terraform
+    type: cleanup
